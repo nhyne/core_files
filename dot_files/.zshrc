@@ -49,29 +49,31 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
-#source ~/.git-completion.zsh
+# exports
 export HOMEBREW_GITHUB_API_TOKEN=<SECRET>
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
-#export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-HISTIGNORE="[\ ]*:&:p *"
-HISTTIMEFORMAT="%d/%m/%y %T "
-setopt no_share_history
-
 export EDITOR='vim'
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/sbin/vault vault
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
 
 # PATH
 export GOPATH=/Users/adamjohnson/iheart/go
 export PATH=$GOPATH/bin:$(pyenv root)/shims:/usr/local/sbin:$PATH
+
+# User configuration
+zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
+HISTIGNORE="[\ ]*:&:p *"
+HISTTIMEFORMAT="%d/%m/%y %T "
+setopt no_share_history
+
+# evals
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/sbin/vault vault
 
 # Aliases
 alias kubeami="kubectl config current-context"
@@ -79,4 +81,4 @@ alias terrami="terraform workspace show"
 alias ll="ls -lah"
 
 # IHR stuff
-source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
+# source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
