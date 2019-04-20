@@ -1,0 +1,82 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/adamjohnson/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="mm/dd/yyyy"
+
+plugins=(
+  git
+  kubectl
+  man
+  minikube
+  screen
+  brew
+  docker
+  osx
+
+#  postgres
+#  rsync
+#  go
+#  golang
+#  docker-compose
+#  pip
+#  helm
+#  kops
+#  rbenv
+#  repo
+#  ruby
+#  sudo
+#  virtualenvwrapper
+#  vundle
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
+#source ~/.git-completion.zsh
+export HOMEBREW_GITHUB_API_TOKEN=<SECRET>
+export VIRTUAL_ENV_DISABLE_PROMPT=0
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+#export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+HISTIGNORE="[\ ]*:&:p *"
+HISTTIMEFORMAT="%d/%m/%y %T "
+setopt no_share_history
+
+export EDITOR='vim'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/sbin/vault vault
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# PATH
+export GOPATH=/Users/adamjohnson/iheart/go
+export PATH=$GOPATH/bin:$(pyenv root)/shims:/usr/local/sbin:$PATH
+
+# Aliases
+alias kubeami="kubectl config current-context"
+alias terrami="terraform workspace show"
+alias ll="ls -lah"
+
+# IHR stuff
+source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
