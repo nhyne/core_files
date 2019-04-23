@@ -49,7 +49,7 @@ plugins=(
 
 #sources
 source $ZSH/oh-my-zsh.sh
-source ~/.keys/github_api_token
+source ~/.keys/github_api_token.bash
 
 # exports
 export VIRTUAL_ENV_DISABLE_PROMPT=0
