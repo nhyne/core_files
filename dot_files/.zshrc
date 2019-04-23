@@ -47,10 +47,11 @@ plugins=(
 #  vundle
 )
 
+#sources
 source $ZSH/oh-my-zsh.sh
+source ~/.keys/github_api_token
 
 # exports
-export HOMEBREW_GITHUB_API_TOKEN=<SECRET>
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 export EDITOR='vim'
@@ -69,16 +70,18 @@ setopt no_share_history
 # evals
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/sbin/vault vault
 
 # Aliases
 alias kubeami="kubectl config current-context"
+alias ecrlogin="$(aws ecr get-login --region us-east-1 --no-include-email)"
 alias terrami="terraform workspace show"
 alias ll="ls -lah"
+
+#opam config
+#test -r /Users/adamjohnson/.opam/opam-init/init.zsh && . /Users/adamjohnson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # IHR stuff
 # source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
