@@ -53,7 +53,7 @@ source ~/.keys/github_api_token.bash
 
 # exports
 export VIRTUAL_ENV_DISABLE_PROMPT=0
-export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G" #-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 export EDITOR='vim'
 #export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
 
@@ -79,6 +79,10 @@ alias kubeami="kubectl config current-context"
 alias ecrlogin="$(aws ecr get-login --region us-east-1 --no-include-email)"
 alias terrami="terraform workspace show"
 alias ll="ls -lah"
+
+# Completions
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
 
 #opam config
 #test -r /Users/adamjohnson/.opam/opam-init/init.zsh && . /Users/adamjohnson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
