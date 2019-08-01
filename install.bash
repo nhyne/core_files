@@ -14,3 +14,9 @@ ln -s -f $(pwd)/dot_files/.zshrc ~/.zshrc
 mkdir -p ~/.zsh/completions
 curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o ~/.zsh/completions/_hub
 
+# install git-delete-squashed
+npm install --global git-delete-squashed
+
+# install kubectl-repl
+curl -o /usr/local/bin/kubectl-repl https://github.com/Mikulas/kubectl-repl/releases/download/1.7/kubectl-repl-darwin-386-1.7
+chmod +x /usr/local/bin/kubectl-repl
