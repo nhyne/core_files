@@ -1,7 +1,7 @@
 # Written by Adam Johson
 [user]
   name = nhyne
-  email = adamjohnson35@gmail.com
+  email = nhyne@nhyne.dev
   signingkey = F321CA6A67A7D983
 [gpg]
   program = gpg
