@@ -6,6 +6,8 @@ tap "homebrew/services"
 tap "argoproj/tap
 brew "ammonite-repl"
 brew "openssl"
+brew "goreleaser/tap/goreleaser"
+brew "cuelang/tap/cue"
 brew "sqlite"
 brew "python"
 brew "rlwrap"
