@@ -59,7 +59,10 @@ export EDITOR='vim'
 
 # PATH
 export GOPATH=/Users/adamjohnson/iheart/go
-export PATH=$HOME/.cargo/bin:$GOPATH/bin:$HOME/.nix-profile/bin:$(pyenv root)/shims:/usr/local/sbin:$PATH
+export PATH=$HOME/.cargo/bin:$GOPATH/bin:$(pyenv root)/shims:/usr/local/sbin:$PATH
+
+# nix setup
+. /Users/adamjohnson/.nix-profile/etc/profile.d/nix.sh
 
 # User configuration
 zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
