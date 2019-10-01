@@ -55,6 +55,8 @@ source ~/.keys/github_api_token.bash
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G" #-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 export EDITOR='vim'
+export RUSTC_WRAPPER=sccache
+export SCCACHE_BUCKET=nhyne-build-cache
 #export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
 
 # PATH
@@ -85,7 +87,7 @@ alias ll="ls -lah"
 alias ghpr="hub pull-request -p"
 
 # Completions
-fpath=(~/.zsh/completions $fpath) 
+fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
 #opam config
