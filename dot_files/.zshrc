@@ -68,13 +68,13 @@ export PATH=$HOME/.cargo/bin:$GOPATH/bin:$(pyenv root)/shims:/usr/local/sbin:$PA
 
 # User configuration
 zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
-HISTIGNORE="[\ ]*:&:p *"
 HISTTIMEFORMAT="%d/%m/%y %T "
 setopt no_share_history
+setopt HIST_IGNORE_SPACE
 
 # evals
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/sbin/vault vault
@@ -89,6 +89,7 @@ alias ghpr="hub pull-request -p"
 # Completions
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
+source <(kubectl completion zsh)
 
 #opam config
 #test -r /Users/adamjohnson/.opam/opam-init/init.zsh && . /Users/adamjohnson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
