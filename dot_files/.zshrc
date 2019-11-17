@@ -61,7 +61,7 @@ export SCCACHE_BUCKET=nhyne-build-cache
 
 # PATH
 export GOPATH=/Users/adamjohnson/iheart/go
-export PATH=$HOME/.cargo/bin:$GOPATH/bin:$(pyenv root)/shims:/usr/local/sbin:$PATH
+export PATH=$HOME/.cargo/bin:$GOPATH/bin:/usr/local/sbin:$PATH
 
 # nix setup
 . /Users/adamjohnson/.nix-profile/etc/profile.d/nix.sh
@@ -77,7 +77,7 @@ setopt HIST_IGNORE_SPACE
 #eval "$(pyenv virtualenv-init -)"
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/sbin/vault vault
+#complete -o nospace -C /usr/local/sbin/vault vault
 
 # Aliases
 alias kubeami="kubectl config current-context"
