@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/adamjohnson/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
@@ -27,7 +27,6 @@ plugins=(
   man
   minikube
   screen
-  brew
   docker
   osx
 
@@ -60,11 +59,14 @@ export SCCACHE_BUCKET=nhyne-build-cache
 #export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
 
 # PATH
-export GOPATH=/Users/adamjohnson/iheart/go
+export GOPATH=$HOME/developer/go
 export PATH=$HOME/.cargo/bin:$GOPATH/bin:/usr/local/sbin:$PATH
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	export PATH=/opt/firefox:$PATH
+fi
+#nix setup
+. "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
-# nix setup
-. /Users/adamjohnson/.nix-profile/etc/profile.d/nix.sh
 
 # User configuration
 zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
@@ -85,6 +87,10 @@ alias ecrlogin="$(aws ecr get-login --region us-east-1 --no-include-email)"
 alias terrami="terraform workspace show"
 alias ll="ls -lah"
 alias ghpr="hub pull-request -p"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+fi
 
 # Completions
 fpath=(~/.zsh/completions $fpath)
