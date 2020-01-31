@@ -83,7 +83,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 # Aliases
 alias kubeami="kubectl config current-context"
-alias ecrlogin="$(aws ecr get-login --region us-east-1 --no-include-email)"
+alias ecrlogin="eval $(aws ecr get-login --no-include-email)"
 alias terrami="terraform workspace show"
 alias ll="ls -lah"
 alias ghpr="hub pull-request -p"
