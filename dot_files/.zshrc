@@ -98,11 +98,5 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 source <(kubectl completion zsh)
 
-#opam config
-#test -r /Users/adamjohnson/.opam/opam-init/init.zsh && . /Users/adamjohnson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# IHR stuff
-# source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
-
 # opam configuration
-test -r /home/nhyne/.opam/opam-init/init.zsh && . /home/nhyne/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
