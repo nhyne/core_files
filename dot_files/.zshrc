@@ -90,6 +90,7 @@ alias ghpr="hub pull-request -p"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
+	alias docker="podman"
 fi
 
 # Completions
@@ -102,3 +103,6 @@ source <(kubectl completion zsh)
 
 # IHR stuff
 # source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
+
+# opam configuration
+test -r /home/nhyne/.opam/opam-init/init.zsh && . /home/nhyne/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
