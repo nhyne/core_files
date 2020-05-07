@@ -60,7 +60,7 @@ export SCCACHE_BUCKET=nhyne-build-cache
 
 # PATH
 export GOPATH=$HOME/developer/go
-export PATH=$HOME/.cargo/bin:$GOPATH/bin:/usr/local/sbin:$PATH
+export PATH=$GOPATH/bin:$PATH
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	export PATH=/opt/firefox:$PATH
 fi
