@@ -22,6 +22,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(
+  bazel
   git
   kubectl
   man
@@ -54,19 +55,16 @@ source ~/.keys/github_api_token.bash
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G" #-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 export EDITOR='vim'
-export RUSTC_WRAPPER=sccache
-export SCCACHE_BUCKET=nhyne-build-cache
+#export RUSTC_WRAPPER=sccache
+#export SCCACHE_BUCKET=nhyne-build-cache
 #export PS1="\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \W $ "
 
 # PATH
 export GOPATH=$HOME/developer/go
-export PATH=$HOME/.cargo/bin:$GOPATH/bin:/usr/local/sbin:$PATH
+export PATH=$GOPATH/bin:$PATH
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	export PATH=/opt/firefox:$PATH
 fi
-#nix setup
-. "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
 
 # User configuration
 zstyle ':completion:*:*:git:*' source /usr/local/share/zsh/site-functions/_git
@@ -90,7 +88,6 @@ alias ghpr="hub pull-request -p"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
-	alias docker="podman"
 fi
 
 # Completions
