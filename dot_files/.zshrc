@@ -96,25 +96,11 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 source <(kubectl completion zsh)
 
-<<<<<<< Updated upstream
 # opam configuration
 test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-||||||| merged common ancestors
-#opam config
-#test -r /Users/adamjohnson/.opam/opam-init/init.zsh && . /Users/adamjohnson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# IHR stuff
-# source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
-=======
-#opam config
-#test -r /Users/adamjohnson/.opam/opam-init/init.zsh && . /Users/adamjohnson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# IHR stuff
-# source /Users/adamjohnson/.IHR_SRE/.sre_shell_tools_rc
 
 eval "$(jenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
->>>>>>> Stashed changes
