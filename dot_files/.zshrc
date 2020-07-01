@@ -61,7 +61,7 @@ export EDITOR='vim'
 
 # PATH
 export GOPATH=$HOME/developer/go
-export PATH=$HOME/.nix-profile/bin:$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	export PATH=/opt/firefox:$PATH
 fi
@@ -95,6 +95,10 @@ fi
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 source <(kubectl completion zsh)
+
+# nix
+. "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
 
 # opam configuration
 test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
