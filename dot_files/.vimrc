@@ -1,14 +1,13 @@
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
+
+call plug#end()
+
+
+
 set nocompatible
 set shell=bash\ --login
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gioele/vim-autoswap'
-Plugin 'scrooloose/nerdtree'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-call vundle#end()
 :syntax on
 :colorscheme koehler
 :set number
