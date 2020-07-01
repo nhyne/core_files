@@ -61,7 +61,7 @@ export EDITOR='vim'
 
 # PATH
 export GOPATH=$HOME/developer/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.nix-profile/bin:$GOPATH/bin:$PATH
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	export PATH=/opt/firefox:$PATH
 fi
