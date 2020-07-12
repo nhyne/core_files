@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -61,9 +58,9 @@ export EDITOR='vim'
 
 # PATH
 export GOPATH=$HOME/developer/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$HOME/.jenv/bin:$HOME/.yarn/bin:$PATH
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	export PATH=/opt/firefox:$PATH
+	export PATH=$HOME/opt/firefox:$PATH
 fi
 
 # User configuration
@@ -83,6 +80,7 @@ autoload -U +X bashcompinit && bashcompinit
 alias kubeami="kubectl config current-context"
 alias ecrlogin="aws ecr get-login-password | docker login --username AWS --password-stdin 827541288795.dkr.ecr.us-east-1.amazonaws.com"
 alias terrami="terraform workspace show"
+alias zhistfix="mv ~/.zsh_history ~/.zsh_history_bad; strings ~/.zsh_history_bad > ~/.zsh_history; fc -R ~/.zsh_history; rm ~/.zsh_history_bad;"
 alias ll="ls -lah"
 alias wthr="curl wttr.in"
 alias ghpr="hub pull-request -p"
@@ -98,7 +96,7 @@ source <(kubectl completion zsh)
 
 # nix
 . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
+if [ -e /home/nhyne/.nix-profile/etc/profile.d/nix.sh ]; then . /home/nhyne/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # opam configuration
 test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
