@@ -53,7 +53,7 @@ source ~/.keys/github_api_token.bash
 
 # exports
 export VIRTUAL_ENV_DISABLE_PROMPT=0
-export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=2G -Xmx2G" #-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=3G -Xmx3G" #-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 export EDITOR='vim'
 #export RUSTC_WRAPPER=sccache
 #export SCCACHE_BUCKET=nhyne-build-cache
@@ -81,9 +81,10 @@ autoload -U +X bashcompinit && bashcompinit
 
 # Aliases
 alias kubeami="kubectl config current-context"
-alias ecrlogin="eval $(aws ecr get-login --no-include-email)"
+alias ecrlogin="aws ecr get-login-password | docker login --username AWS --password-stdin 827541288795.dkr.ecr.us-east-1.amazonaws.com"
 alias terrami="terraform workspace show"
 alias ll="ls -lah"
+alias wthr="curl wttr.in"
 alias ghpr="hub pull-request -p"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	alias pbcopy='xclip -selection clipboard'
@@ -95,5 +96,15 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 source <(kubectl completion zsh)
 
+# nix
+. "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+
 # opam configuration
 test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
