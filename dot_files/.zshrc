@@ -95,8 +95,8 @@ autoload -U compinit && compinit
 source <(kubectl completion zsh)
 
 # nix
-. "$HOME/.nix-profile/etc/profile.d/nix.sh"
-if [ -e /home/nhyne/.nix-profile/etc/profile.d/nix.sh ]; then . /home/nhyne/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+# if [ -e /home/nhyne/.nix-profile/etc/profile.d/nix.sh ]; then . /home/nhyne/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # opam configuration
 test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
